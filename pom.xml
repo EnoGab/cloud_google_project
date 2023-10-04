@@ -12,16 +12,30 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+<<<<<<< HEAD
     <maven.compiler.source>17</maven.compiler.source>
     <maven.compiler.target>17</maven.compiler.target>
+=======
+    <maven.compiler.source>20</maven.compiler.source>
+    <maven.compiler.target>20</maven.compiler.target>
+    <aspectj.version>1.9.20.1</aspectj.version>
+    <allure.version>2.24.0</allure.version>
+
+>>>>>>> f164a75 (Added Allure)
   </properties>
 
   <dependencies>
     <dependency>
+<<<<<<< HEAD
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <version>3.8.1</version>
       <scope>test</scope>
+=======
+      <groupId>io.github.bonigarcia</groupId>
+      <artifactId>webdrivermanager</artifactId>
+      <version>5.5.3</version>
+>>>>>>> f164a75 (Added Allure)
     </dependency>
     <!-- https://mvnrepository.com/artifact/org.testng/testng -->
     <dependency>
@@ -36,6 +50,7 @@
       <artifactId>selenium-java</artifactId>
       <version>4.12.0</version>
     </dependency>
+<<<<<<< HEAD
     <dependency>
       <groupId>io.github.bonigarcia</groupId>
       <artifactId>webdrivermanager</artifactId>
@@ -43,3 +58,48 @@
     </dependency>
   </dependencies>
 </project>
+=======
+    <!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-testng -->
+    <dependency>
+      <groupId>io.qameta.allure</groupId>
+      <artifactId>allure-testng</artifactId>
+      <version>${allure.version}</version>
+    </dependency>
+
+
+  </dependencies>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>3.1.2</version>
+        <configuration>
+          <argLine>-javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"                </argLine>
+        </configuration>
+        <dependencies>
+          <!-- https://mvnrepository.com/artifact/org.aspectj/aspectjweaver -->
+          <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>1.9.20.1</version>
+            <scope>runtime</scope>
+          </dependency>
+
+        </dependencies>
+      </plugin>
+      <plugin>
+        <groupId>io.qameta.allure</groupId>
+        <artifactId>allure-maven</artifactId>
+        <version>2.10.0</version>
+        <configuration>
+          <reportVersion>${allure.version}</reportVersion>
+          <allureDownloadUrl>https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/${allure.version}/allure-commandline-${allure.version}.zip
+          </allureDownloadUrl>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+  </project>
+>>>>>>> f164a75 (Added Allure)
