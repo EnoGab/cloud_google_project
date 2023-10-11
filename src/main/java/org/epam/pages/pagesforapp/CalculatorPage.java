@@ -122,7 +122,7 @@ public class CalculatorPage extends BasePage {
                 .click();
         return this;
     }
-    public CalculatorPage fillDatacenterLocation(String searchTerm, String name){
+    public CalculatorPage fillDatacenterLocation(String name){
         datacenterLocationField.click();
         List<WebElement> datacenterLocationList = driver.findElements(By.xpath(datacenterLocationOptions));
         waitForVisibilityOf(datacenterLocationList
